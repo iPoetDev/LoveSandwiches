@@ -28,7 +28,7 @@ to [Semantic Versioning](http://semver.org/).
 
 > **Template**
 
-## Changelog: 2023.04.17 v.0.0.1.001
+## Changelog: 2023.04.xx v.0.0.1.001
 
 > ### Bumped:
 
@@ -74,8 +74,11 @@ to [Semantic Versioning](http://semver.org/).
         - `heroku_confih.sh`: for heroku CLI, which you will not use for this project,
     - Added: Project files: `Procfile`, `README.md`, `requirements.txt`
     - Added: Core File: `run.py`, `index.js`
-- Added: `Done.md` template (boilerplate)
-- Added: .gitignore
+- Added: Issue Templates
+    - Config.yml for Issue picker
+    - Deployment Template (v0.01): Checklist and SOP for Heroku/Target Application
+    - Repo Manager Chore templates (v0.01).
+    - Tutoring Issue (v0.01).
 
 ---
 
