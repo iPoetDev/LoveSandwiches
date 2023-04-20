@@ -1,9 +1,11 @@
 ---
 name: CI Tutor Session
-about: We're here to help you understand specific programming concepts, and to develop your troubleshooting skills.
+about: We're here to help you understand specific programming concepts, and to develop
+  your troubleshooting skills.
 title: "[TUTOR]: [ISSUE]"
-labels: tutoring issue, needs triage, bug, concept
-assignees: ipoetdev
+labels: ''
+assignees: iPoetDev
+
 ---
 
 # Code Institute Tutoring Session
@@ -124,4 +126,3 @@ Please provide a browser console/terminal stderr output
     - Your access to tutoring will be capped at 90 minutes per week, in order to ensure fair access to all students.
     - If you reach the cap in any given week, you will be assigned steps to help you continue with your work
     - Will relying less on tutoring.
-  
