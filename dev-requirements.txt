@@ -1,0 +1,98 @@
+# Developer Experience & Inventory
+# Move the individual in dev-requirements.txt to the application requirements.txt
+#
+# Linters
+flake8
+flake8-pylint
+mccabe
+pep8
+pycodestyle
+pyflakes
+pylint
+pylint-af
+pylint-blank-line-plugin
+pylint-codeclimate
+pylint-common
+pylint-core
+pylint-fail-under
+pylint-fixme-info
+pylint-import-requirements
+pylint-mccabe
+pylint-plugin-utils
+pylint-plus
+pylint-report
+pylint-secure-coding-standard
+pylint-utils
+pylint-venv
+pylintconfig
+watchpylint
+#linter-dependencies
+astroid
+## Syntax
+frozenlist
+isort
+multidict
+# Syntax
+wrapt
+lazy-object-proxy
+# Types
+typing-extensions
+# Input
+argcomplete==3.0.6
+attrs
+cachetools
+charset-normalizer
+# Project
+pip==23.1.1
+findpydeps
+pydep-cli
+pydependance
+pydependencygrapher
+pydependschecker
+pydeps
+setuptools==67.7.1
+toml
+tomlkit
+wheel
+#Infra
+certifi
+# Asynchronous
+aiohttp
+aiosignal
+anyio
+async-timeout
+sniffio
+# HTTP
+h11
+httpcore
+httpx
+# Standard library
+stdlib-list
+importlib-metadata==6.6.0
+zipp
+# Data
+tabulate==0.9.0
+#Serialise
+dill
+# TUI
+termcolor
+click
+colorama
+fire==0.5.0
+# P2<>P3
+six
+# Features
+Jinja2
+MarkupSafe
+numpy==1.24.3
+pandas==2.0.0
+# OS
+platformdirs
+#Api
+credentials
+#domains
+idna
+pyasn1
+pyasn1-modules
+# Graphics
+pycairo

@@ -1,10 +1,13 @@
+# =================================================================
+# Gitpod
 core.Microsoft*
 core.mongo*
 core.python*
 env.py
 __pycache__/
 *.py[cod]
-node_modules/
+# =================================================================
+# Project Locals
 idea/*
 /.idea/codestream.xml
 /.idea/CustomInspectionsConfig.xml
@@ -14,3 +17,11 @@ idea/*
 /.idea/vcs.xml
 /.github/workflows/*
 venv/*
+node_modules/
+# =================================================================
+# Creds/Secret
+creds.json
+.env
+# =================================================================
+# Extensions/Plugin
+/.write/
