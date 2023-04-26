@@ -25,3 +25,7 @@ creds.json
 # =================================================================
 # Extensions/Plugin
 /.write/
+/pycriteria/__init__.py
+/pycriteria/__main__.py
+/pycriteria/settings.py
+/app-requirements.txt

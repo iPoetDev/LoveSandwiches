@@ -7,18 +7,24 @@ import logging
 # 0.2 Core Modules
 from pathlib import Path
 
-# String/Int Resources
+# Global String/Int Resources
 DOMAINHOST: str = 'www.google.com'
 HOST: str = 'www.googleapis.com'
 APIHOST: str = 'www.googleapis.com'
+CRED_FILE: str = 'creds.json'
 HTTPS: int = 443
 LOGS: str = 'goggle-py.log'
 ENV: str = '.env'
 ENCODE: str = 'UTF-8'
+WARNACTION: str = 'ignore'
 
-# String/Int Resources
+WELCOME: str = 'Welcome to Love Sandwiches Data Automation'
+
+# Data String/Int Resources
 FILENAME: str = 'LoveSandwiches'
-TAB: str = 'sales'
+TAB_SALES: str = 'sales'
+TAB_STOCK: str = 'stock'
+TAB_SURPLUS: str = 'surplus'
 
 # Logging
 logging.basicConfig(filename=LOGS, level=logging.DEBUG)

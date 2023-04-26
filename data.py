@@ -3,23 +3,40 @@
 
 # 03. Local/Own Modules/Library
 import connections
-from settings import FILENAME, TAB
+from settings import CRED_FILE, FILENAME, TAB_SALES
 
 # Connections
 # SSL_SOCK = open_connection()
-CLIENT = connections.connect_to_remote()
+CLIENT = connections.connect_to_remote(CRED_FILE)
 DATASOURCE = connections.get_source(CLIENT, FILENAME)
-SHEET = connections.open_sheet(DATASOURCE, TAB)
+SHEET = connections.open_sheet(DATASOURCE, TAB_SALES)
 DATASET = connections.fetch_data(SHEET)
 
 
-# Connections
-# closed_connection(SSL_SOCK)
+def new_sales_prompt(dataset):
+    """
+    Fetch, validate and prompt for new sales data,
+    Then update remote sales data with new data,
+    Finally refresh the local dataset.
+    :param dataset: local dataset
+    :type dataset: list[str]
+    :return: sales_data
+    :rtype: list[str]
+    """
+    print(dataset)
+    data_list = get_sales_data()
+    sales_data = convert_data_from(data_list)
+    update_sales_worksheet(sales_data)
+    refreshed_data = refresh_dataset()
+    print(refreshed_data)
+    return sales_data
 
 
 def get_sales_data():
     """
     Get sales figures input from the user.
+    :return: sales_data
+    :rtype: list[str]
     """
     # Strings
     _request: str = "Please enter sales data from the last market."
@@ -48,6 +65,12 @@ def validate_data(values, constraint):
     Inside the try, converts all string values into integers.
     Raises ValueError if strings cannot be converted into int,
     or if there are not exactly 6 values.
+    :param values: data from user
+    :type values: list[str]
+    :param constraint: number of values required
+    :type constraint: int
+    :return: True if data is valid.
+    :rtype: bool
     """
     _value_limit = constraint
     try:
@@ -66,13 +89,39 @@ def validate_data(values, constraint):
 def update_sales_worksheet(data: list[int]):
     """
     Update sales worksheet, add new row with the list data provided.
+    :param data: list of integers
+    :type data: list[int]
     """
-    _initating: str = "Updating sales worksheet...\n"
-    _success: str = "Sales worksheet updated successfully.\n"
-    print(_initating)
-    _worksheet = connections.open_sheet(DATASOURCE, TAB)
+    _initiating: str = f"Updating {TAB_SALES.title()} worksheet...\n"
+    _success: str = f"{TAB_SALES.title()} worksheet updated successfully.\n"
+    print(_initiating)
+    _worksheet = connections.open_sheet(DATASOURCE, TAB_SALES)
     _worksheet.append_row(data)
     print(_success)
+
+
+def get_last_entries(count, tab):
+    """
+    Collects columns of data from a worksheet,
+    collecting the last N entries for each record and
+    returns the data as a list of lists.
+    :param count: number of entries
+    :type count: int
+    :param tab: tab name
+    :type tab: str
+    :return: columns
+    :rtype: list[list]
+    """
+    _init: int = 1
+    _delimit: int = 1
+    _number_of_rows = count
+    _worksheet = connections.open_sheet(DATASOURCE, tab)
+    
+    _columns = []
+    for ind in range(_init, _number_of_rows + _delimit):
+        _column = _worksheet.col_values(ind)
+        _columns.append(_column[-count:])
+    return _columns
 
 
 def convert_data_from(data: str):
@@ -83,3 +132,23 @@ def convert_data_from(data: str):
     :return: data
     """
     return [int(num) for num in data]
+
+
+def convert_data_to(data: list[int]):
+    """
+    Convert data from integer to string
+    :param data: data from user
+    :type data: list[int]
+    :return: data
+    :rtype: list[str]
+    """
+    return [str(num) for num in data]
+
+
+def refresh_dataset():
+    """
+    Refresh sales dataset from Google Sheet
+    """
+    global DATASET
+    DATASET = connections.fetch_data(SHEET)
+    return DATASET

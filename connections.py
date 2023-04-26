@@ -20,14 +20,14 @@ logging.captureWarnings(True)
 logging.info('Running on %s on port %d', HOST, HTTPS)
 
 
-def connect_to_remote():
+def connect_to_remote(credential_file):
     """
     Connects to a Google Sheet synchronously else exit for now
     :return: collection
     :rtype: NotionClient
     """
     try:
-        _creds = Credentials.from_service_account_file('creds.json')
+        _creds = Credentials.from_service_account_file(credential_file)
         # assert isinstance(_creds.with_scopes, SCOPE)
         return _creds.with_scopes(SCOPE)
     except Exception as _error:
@@ -59,7 +59,7 @@ def get_source(credentials, file_name: str):
         sys.exit(1)
 
 
-def open_sheet(file, tab: str):
+def open_sheet(file: gspread.Spreadsheet, tab: str):
     """
     Opens a Google sheet by tabname
     :param file: Google sheet file
@@ -79,11 +79,13 @@ def open_sheet(file, tab: str):
         sys.exit(1)
 
 
-def fetch_data(sheet):
+def fetch_data(sheet: gspread.Worksheet):
     """
     Fetch the data from the Google sheet
-    :return: data
-    :rtype:
+    :param sheet:
+    :type sheet:
+    :return: sheet.get_all_values()
+    :rtype: list[str]
     """
     try:
         return sheet.get_all_values()
