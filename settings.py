@@ -1,6 +1,5 @@
 #!/user/bin/env python3
 """Module App Settings and Environmental Vars."""
-
 # @0min53
 # 0.1 Core Imports
 import logging
@@ -11,15 +10,15 @@ from pathlib import Path
 DOMAINHOST: str = 'www.google.com'
 HOST: str = 'www.googleapis.com'
 APIHOST: str = 'www.googleapis.com'
-CRED_FILE: str = 'creds.json'
 HTTPS: int = 443
 LOGS: str = 'goggle-py.log'
 ENV: str = '.env'
 ENCODE: str = 'UTF-8'
-WARNACTION: str = 'ignore'
-
-WELCOME: str = 'Welcome to Love Sandwiches Data Automation'
-
+# Data String/Int Resources
+CRED_FILE: str = 'creds.json'
+TITLE: str = 'Love Sandwiches'
+PURPOSE: str = 'Data Automation'
+WELCOME: str = f'Welcome to {TITLE} {PURPOSE} App.'
 # Data String/Int Resources
 FILENAME: str = 'LoveSandwiches'
 TAB_SALES: str = 'sales'

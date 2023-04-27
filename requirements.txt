@@ -1,5 +1,7 @@
 ### LoveSandwiches ###
 ## Python 3.11
+# Feedbacj
+loguru
 ## Google API
 google
 gspread # Google Spreadsheet and set a value to a cell:
@@ -15,7 +17,7 @@ certifi>=2022.12.7
 oauthlib # OAuth request-signing logic
 requests>=2.29.0 # simple, yet elegant, HTTP library.
 requests-oauthlib #  first-class OAuth library support for Requests
-urllib3>=1.26.15 #powerful, user-friendly HTTP client for Python
+urllib3==1.26.15 #powerful, user-friendly HTTP client for Python
 httpx>=0.24.0
 yarl>=1.9.2 # URL class for URL parsing and changing
 # Aysnc asyncio # Asynchronous I/O, event loop, coroutines and tasks.

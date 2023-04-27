@@ -8,13 +8,6 @@ __pycache__/
 *.py[cod]
 # =================================================================
 # Project Locals
-idea/*
-/.idea/codestream.xml
-/.idea/CustomInspectionsConfig.xml
-/.idea/LoveSandwiches.iml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
 /.github/workflows/*
 venv/*
 node_modules/
